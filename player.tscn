@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d3of3gfiolf3m"]
+
+[ext_resource type="Script" uid="uid://bhi1fdag0u7o0" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dp6reb3tr6mkp" path="res://kenney_new-platformer-pack-1.1/Sprites/Characters/Default/character_yellow_idle.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(89, 69.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=237524891]
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1019086558]
+position = Vector2(726, 256)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1936479857]
+position = Vector2(726, 255.75)
+shape = SubResource("RectangleShape2D_hqtel")

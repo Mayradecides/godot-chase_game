@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dgoi0befmhyfr"]
+
+[ext_resource type="Script" uid="uid://btpyvmnhttk5c" path="res://character_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dr46rcthqs1om" path="res://kenney_new-platformer-pack-1.1/Sprites/Enemies/Double/snail_walk_b.png" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fsjo"]
+size = Vector2(263.5, 207.5)
+
+[node name="Node2D" type="Node2D" unique_id=2111321889]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=388619905]
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=589529263]
+position = Vector2(577, 432)
+texture = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1212022001]
+position = Vector2(589, 468.75)
+shape = SubResource("RectangleShape2D_5fsjo")
