@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dp6reb3tr6mkp" path="res://kenney_new-platformer-pack-1.1/Sprites/Characters/Default/character_yellow_idle.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(89, 69.5)
+size = Vector2(38, 47)
 
 [node name="Player" type="CharacterBody2D" unique_id=237524891]
+motion_mode = 1
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1019086558]
@@ -15,5 +16,5 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1936479857]
-position = Vector2(726, 255.75)
+position = Vector2(726, 261.5)
 shape = SubResource("RectangleShape2D_hqtel")

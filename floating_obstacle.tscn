@@ -4,27 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://duoipqm38gx7d" path="res://kenney_new-platformer-pack-1.1/Sprites/Tiles/Default/bridge.png" id="2_ymtws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymahc"]
-size = Vector2(311, 58)
+size = Vector2(166, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fsjo"]
-size = Vector2(271, 38.5)
+size = Vector2(182, 28)
 
 [node name="Floating obstacle" type="AnimatableBody2D" unique_id=1322624925]
 script = ExtResource("1_m1c7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=291826778]
-position = Vector2(552, 162.5)
-scale = Vector2(4.6250005, 1.171875)
+position = Vector2(483.75003, 143.25)
+scale = Vector2(2.5703127, 0.6171874)
 texture = ExtResource("2_ymtws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202460463]
-position = Vector2(545.5, 143)
+position = Vector2(483, 134.5)
 shape = SubResource("RectangleShape2D_ymahc")
 
 [node name="Hitarea" type="Area2D" parent="." unique_id=627115887]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitarea" unique_id=331751983]
-position = Vector2(560.5, 150)
+position = Vector2(480, 136)
 shape = SubResource("RectangleShape2D_5fsjo")
 
 [connection signal="body_entered" from="Hitarea" to="." method="_on_hitarea_body_entered"]

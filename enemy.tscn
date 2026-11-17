@@ -4,27 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://r1ypqewjsq6e" path="res://kenney_new-platformer-pack-1.1/Sprites/Enemies/Default/fly_b.png" id="2_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
-size = Vector2(49, 51)
+size = Vector2(21, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(61.5, 68.5)
+size = Vector2(22.5, 22)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1358572416]
-collision_mask = 0
+[node name="Enemy" type="CharacterBody2D" unique_id=1358572416 groups=["enemies"]]
+collision_mask = 2
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2056437734]
 modulate = Color(1, 0.25882354, 0.078431375, 1)
-position = Vector2(342.75, 301)
 scale = Vector2(0.30078128, 0.3281249)
 texture = ExtResource("2_4gyqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80731936]
-position = Vector2(343, 300)
 shape = SubResource("RectangleShape2D_qi2p4")
 
 [node name="catcharea" type="Area2D" parent="." unique_id=893687576]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="catcharea" unique_id=1101093632]
-position = Vector2(346, 299)
 shape = SubResource("RectangleShape2D_iifgy")
+
+[connection signal="body_entered" from="catcharea" to="." method="_on_catcharea_body_entered"]

@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://cqvhdvab5mf1i"]
 
 [ext_resource type="PackedScene" uid="uid://d3of3gfiolf3m" path="res://player.tscn" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://ssqj3yt7at5w" path="res://kenney_new-platformer-pack-1.1/Sprites/Backgrounds/Double/background_color_trees.png" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://djloa40xeyclo" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dp1bqufjwtlbn" path="res://enemy.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bokbj73hmnvxo" path="res://kenney_new-platformer-pack-1.1/Sprites/Backgrounds/Double/background_color_mushrooms.png" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ddlotu5jljxv0" path="res://floating_obstacle.tscn" id="4_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fsjo"]
-size = Vector2(1115, 34.5)
+size = Vector2(1221.7532, 34.5)
 
 [node name="Main" type="Node2D" unique_id=1977796268]
 script = ExtResource("1_lquwl")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=625218039]
-offset_left = 12.0
-offset_top = -12.0
-offset_right = 1166.0
-offset_bottom = 639.0
-texture = ExtResource("1_h2yge")
+offset_left = 27.0
+offset_top = -10.0
+offset_right = 1181.0
+offset_bottom = 641.0
+texture = ExtResource("2_lquwl")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1392510782]
 visible = false
@@ -26,10 +26,21 @@ offset_right = 77.0
 offset_bottom = 466.0
 
 [node name="Player" parent="." unique_id=1955625812 instance=ExtResource("1_0xm2m")]
-position = Vector2(-365, 148)
+position = Vector2(-552, 146)
 
 [node name="enemy" parent="." unique_id=680478510 node_paths=PackedStringArray("target") instance=ExtResource("2_h2yge")]
-position = Vector2(597, -69)
+position = Vector2(562, 278)
+motion_mode = 1
+target = NodePath("../Player")
+
+[node name="enemy3" parent="." unique_id=1358572416 node_paths=PackedStringArray("target") instance=ExtResource("2_h2yge")]
+position = Vector2(842, 364)
+motion_mode = 1
+target = NodePath("../Player")
+
+[node name="enemy2" parent="." unique_id=1499100248 node_paths=PackedStringArray("target") instance=ExtResource("2_h2yge")]
+position = Vector2(605, 515)
+motion_mode = 1
 target = NodePath("../Player")
 
 [node name="Walls" type="Node2D" parent="." unique_id=1919422878]
@@ -37,47 +48,49 @@ target = NodePath("../Player")
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=654477731]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=1541428441]
-position = Vector2(22.25, 346)
+position = Vector2(14, 354.99997)
 rotation = -1.5705445
 shape = SubResource("RectangleShape2D_5fsjo")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Walls" unique_id=988227132]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4" unique_id=1136849454]
-position = Vector2(1155, 320)
-rotation = 1.5471483
+position = Vector2(1178.7617, 462.66492)
+rotation = 1.5603124
 shape = SubResource("RectangleShape2D_5fsjo")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls" unique_id=1401653896]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2" unique_id=1809530685]
-position = Vector2(609.5, 590.5)
+position = Vector2(599, 642)
 shape = SubResource("RectangleShape2D_5fsjo")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls" unique_id=1203156545]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3" unique_id=2140733762]
-position = Vector2(599, 12.75)
+position = Vector2(587, 1)
 shape = SubResource("RectangleShape2D_5fsjo")
 
 [node name="Floating obstacle" parent="." unique_id=1322624925 instance=ExtResource("4_1bvp3")]
-position = Vector2(297, 253)
+position = Vector2(438.00003, 381.00003)
+rotation = 0.015740959
 float_speed = 3.0
 
 [node name="Floating obstacle2" parent="." unique_id=1011818602 instance=ExtResource("4_1bvp3")]
-position = Vector2(-25, 354)
+position = Vector2(-178, 385)
 
 [node name="Floating obstacle3" parent="." unique_id=1777311040 instance=ExtResource("4_1bvp3")]
-position = Vector2(428, 36)
+position = Vector2(367, 76)
 float_speed = 2.5
 
 [node name="Floating obstacle4" parent="." unique_id=1024061154 instance=ExtResource("4_1bvp3")]
-position = Vector2(-124, 173)
+position = Vector2(100, 251)
 
 [node name="Floating obstacle5" parent="." unique_id=1568809722 instance=ExtResource("4_1bvp3")]
-position = Vector2(-146, 1)
+position = Vector2(-130, 81)
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1348728078]
+process_mode = 3
 visible = false
 
 [node name="Label" type="Label" parent="GameOverUI" unique_id=1000638910]
@@ -90,13 +103,16 @@ anchor_right = 0.6744792
 anchor_bottom = 0.56790125
 grow_horizontal = 2
 grow_vertical = 2
+mouse_behavior_recursive = 2
 theme_override_colors/font_color = Color(0.9857033, 0.5693691, 0.53175294, 1)
 theme_override_font_sizes/font_size = 64
 text = "GAME OVER!!"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="GameOverUI" unique_id=789187920]
+[node name="Button" type="Button" parent="GameOverUI/Label" unique_id=789187920]
+process_mode = 3
 modulate = Color(5.0615087, 5.0615087, 5.0615087, 1)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -112,4 +128,4 @@ theme_override_colors/font_color = Color(0.8745098, 0.32941177, 0.2, 1)
 theme_override_font_sizes/font_size = 28
 text = "RESTART GAME"
 
-[connection signal="pressed" from="GameOverUI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameOverUI/Label/Button" to="." method="_on_button_pressed"]
